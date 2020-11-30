@@ -1,5 +1,3 @@
-# Test
-
 import tkinter as tk
 from tkinter import Label, filedialog, Text
 import os
@@ -9,6 +7,16 @@ root = tk.Tk()
 # Create appending method here, loop over this later on as well
 # This empty array is what all of our added .exe files will get pushed too
 apps = []
+
+# Error handling, this gets rid of empty places in our files, accounting for if a user where to select a blank or invalid file type
+if os.path.isfile('save.txt'):
+    with open('save.txt', 'r') as f:
+        tempApps = f.read()
+        # print(tempApps)
+        # Setup previously entered apps persisting upon reload
+        tempApps = tempApps.split(',')
+        # Strips out any existing white space or gaps between our chosen apps
+        apps = [x for x in tempApps if x.strip()]
 
 def addApp():
 
@@ -54,3 +62,9 @@ runApps = tk.Button(root, text="Run Apps", padx=10,
 runApps.pack()
 
 root.mainloop()
+
+# Whenever app is closed this creates a text file that saves all files the user ran in that particular instance
+# Technically speaking, this loops over apps again and gives users the ability to save their files (w=write)
+with open('save.txt', 'w') as f:
+    for app in apps:
+        f.write(app + ',')
