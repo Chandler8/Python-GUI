@@ -62,7 +62,7 @@ Reach out to me via email regarding any questions or concerns with this project:
 
 # Media
 
-![](/images/gui-1.jpg)
+![](images/gui-1.JPG)
 
 # Future-Development
 
