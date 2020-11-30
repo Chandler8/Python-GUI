@@ -5,6 +5,7 @@ from tkinter import Label, filedialog, Text
 import os
 
 root = tk.Tk()
+# Create appending method here, loop over this later on as well
 apps = []
 
 def addApp():
@@ -14,9 +15,10 @@ def addApp():
 
     filename = filedialog.askopenfilename(initialdir="/", title="Select File",
                                             filetypes=(("executables","*.exe"), ("all files", "*.*")))
+    apps.append(filename)
+    print(filename)
+# Indentation matters, be careful where you place variables
 
-# apps.append(filename)
-# print(filename)
 # for app in apps:
 #     label = tk.Label(frame, text=app, bg="grey")
 #     label.pack()
