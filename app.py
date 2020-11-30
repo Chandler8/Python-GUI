@@ -13,7 +13,7 @@ if os.path.isfile('save.txt'):
     with open('save.txt', 'r') as f:
         tempApps = f.read()
         # print(tempApps)
-        # Setup previously entered apps persisting upon reload
+        # This organizes the users input files by seperating them by commas 
         tempApps = tempApps.split(',')
         # Strips out any existing white space or gaps between our chosen apps
         apps = [x for x in tempApps if x.strip()]
@@ -61,6 +61,12 @@ runApps = tk.Button(root, text="Run Apps", padx=10,
 
 runApps.pack()
 
+# Setup previously entered apps persisting upon reload
+for app in apps:
+    label = tk.Label(frame, text=app)
+    label.pack()
+
+
 root.mainloop()
 
 # Whenever app is closed this creates a text file that saves all files the user ran in that particular instance
@@ -68,3 +74,16 @@ root.mainloop()
 with open('save.txt', 'w') as f:
     for app in apps:
         f.write(app + ',')
+
+
+# Future Dev
+
+    # Would like to add a "routines" feature that a user could open up depening upon their desired outcome
+                # For example a user could have a "Work From Home" routine containing all neccessary programs for that situation
+                # A user could also have a "Gaming" routine that opens their desired client for gaming and possibly the steam store so they could add to their arsenal
+
+    # Could also add a delete button within the root that can just delete individual files from your lineup
+                # lets say if a user accidently added something they dont care to have there
+
+    # Would love to create an automated delete feature that would scrap whole files 
+                # In the event an entire routine got outdated, you could kill it

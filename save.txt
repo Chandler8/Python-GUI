@@ -1,0 +1,1 @@
+C:/Program Files/Git/git-bash.exe,C:/Program Files/Robo 3T 1.4.1/robo3t.exe,
